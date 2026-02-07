@@ -1,31 +1,32 @@
 export default function Main() {
+
+    /**
+     * Challenge: Update our app so that when the user enters a
+     * new ingredient and submits the form, it adds that new
+     * ingredient to our list!
+     */
+
     const ingredients = ["Chicken", "Oregano", "Tomatoes"]
-    
+
     const ingredientsListItems = ingredients.map(ingredient => (
         <li key={ingredient}>{ingredient}</li>
     ))
-    
-    /**
-     * Challenge:
-     * Add the new ingredient to the array of ingredients. Also, add a 
-     * console.log(ingredients) after adding the ingredient, because 
-     * **warning**: you aren't going to see the page update!
-     * 
-     * Hint: this is a one-liner solution, so don't overthink it 😅
-     */
 
     function handleSubmit(event) {
+        /**
+         * Like before, don't worry about this FormData stuff yet.
+         * Just use the newIngredient below to help you finish the
+         * challenge.
+         */
         event.preventDefault()
         const formData = new FormData(event.currentTarget)
         const newIngredient = formData.get("ingredient")
-        ingredients.push(newIngredient)
-        console.log(ingredients)
     }
-    
+
     return (
         <main>
             <form onSubmit={handleSubmit} className="add-ingredient-form">
-                <input 
+                <input
                     type="text"
                     placeholder="e.g. oregano"
                     aria-label="Add ingredient"
